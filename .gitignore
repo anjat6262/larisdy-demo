@@ -1,0 +1,32 @@
+.DS_Store
+Thumbs.db
+
+# Local environment files
+.env
+.env.*
+!.env.example
+!.env.playwright
+
+# Root tooling / generated files
+composer.phar
+*.log
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/playwright-report/
+frontend/test-results/
+frontend/vite-dev*.log
+
+# Laravel backend
+backend_runtime/vendor/
+backend_runtime/.env
+backend_runtime/.env.*
+backend_runtime/storage/logs/*.log
+backend_runtime/storage/framework/cache/*
+backend_runtime/storage/framework/sessions/*
+backend_runtime/storage/framework/views/*
+backend_runtime/public/storage/
+backend_runtime/public/uploads/
+backend_runtime/database/*.sqlite
+

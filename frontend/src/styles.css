@@ -1,0 +1,1379 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .tw-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold/70 disabled:pointer-events-none disabled:opacity-60;
+  }
+
+  .tw-btn-primary {
+    @apply tw-btn bg-brand-black text-brand-white shadow-larisdy-sm hover:bg-brand-brown;
+  }
+
+  .tw-btn-secondary {
+    @apply tw-btn border border-brand-border bg-brand-white text-brand-black hover:border-brand-gold hover:bg-brand-cream;
+  }
+
+  .tw-btn-danger {
+    @apply tw-btn bg-red-700 text-white hover:bg-red-800;
+  }
+
+  .tw-card {
+    @apply rounded-xl border border-brand-border bg-brand-white shadow-larisdy-sm transition duration-200 hover:-translate-y-1 hover:shadow-larisdy;
+  }
+
+  .tw-input {
+    @apply w-full rounded-lg border border-brand-border bg-brand-white px-4 py-3 text-sm text-brand-black shadow-sm outline-none transition duration-200 placeholder:text-brand-muted focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20;
+  }
+
+  .tw-label {
+    @apply mb-2 block text-sm font-semibold text-brand-black;
+  }
+
+  .tw-status-badge {
+    @apply inline-flex items-center justify-center rounded-full border border-brand-border bg-brand-cream px-3 py-1 text-xs font-bold uppercase tracking-wide text-brand-brown;
+  }
+
+  .tw-status-badge-success {
+    @apply tw-status-badge border-green-200 bg-green-50 text-green-700;
+  }
+
+  .tw-status-badge-warning {
+    @apply tw-status-badge border-amber-200 bg-amber-50 text-amber-700;
+  }
+
+  .tw-status-badge-danger {
+    @apply tw-status-badge border-red-200 bg-red-50 text-red-700;
+  }
+}
+
+* {
+  @apply m-0 box-border p-0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --primary: #1a1a1a;
+  --secondary: #2d2d2d;
+  --accent-gold: #d4af37;
+  --accent-copper: #b87333;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b6b6b;
+  --text-light: #9a9a9a;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f8f8;
+  --bg-dark: #1a1a1a;
+  --border: #e5e5e5;
+  --danger: #c2410c;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.16);
+}
+
+html {
+  @apply scroll-smooth;
+  font-size: 16px;
+}
+
+body {
+  @apply overflow-x-hidden bg-[var(--bg-primary)] font-sans text-[var(--text-primary)] leading-[1.7] antialiased;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  @apply antialiased;
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-display font-semibold leading-[1.2] tracking-normal;
+}
+
+img {
+  @apply block max-w-full;
+}
+
+.app-shell {
+  @apply flex min-h-screen flex-col;
+}
+
+.app-main {
+  @apply flex-1;
+}
+
+.container {
+  @apply mx-auto max-w-[1400px] px-8;
+}
+
+.page-section {
+  @apply py-12;
+  background:
+    linear-gradient(180deg, rgba(248, 248, 248, 0.72), rgba(255, 255, 255, 0) 220px),
+    var(--bg-primary);
+}
+
+.top-space {
+  @apply mt-12;
+}
+
+.reset-button {
+  @apply border-0 bg-transparent p-0;
+}
+
+.header {
+  @apply sticky top-0 z-[1000] border-b border-[var(--border)] bg-[rgba(255,255,255,0.98)] transition-all duration-[400ms] backdrop-blur-[20px];
+}
+
+.header.scrolled {
+  @apply shadow-[var(--shadow-md)];
+  border-bottom-color: transparent;
+}
+
+.header-content {
+  @apply mx-auto flex max-w-[1400px] items-center justify-between px-8 py-5;
+}
+
+.logo {
+  @apply flex cursor-pointer items-center gap-3 font-display text-[1.75rem] font-bold tracking-normal text-[var(--primary)] transition-opacity duration-300;
+}
+
+.logo:hover {
+  @apply opacity-75;
+}
+
+.logo-image {
+  @apply h-[50px] w-[50px] object-contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.logo-text {
+  background: linear-gradient(135deg, var(--primary), var(--accent-gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav {
+  @apply flex items-center gap-10;
+}
+
+.nav-link {
+  @apply relative py-2 text-[0.95rem] font-medium tracking-[0.02em] text-[var(--text-secondary)] no-underline transition-colors duration-300;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  @apply text-[var(--text-primary)];
+}
+
+.header-actions {
+  @apply flex items-center gap-3.5;
+}
+
+.cart-btn {
+  @apply relative flex cursor-pointer items-center justify-center rounded-lg border-[1.5px] border-[var(--border)] bg-transparent px-3 py-2.5 text-[var(--text-primary)] transition-all duration-300;
+}
+
+.cart-btn:hover {
+  @apply -translate-y-0.5 bg-[var(--primary)] text-white shadow-[var(--shadow-md)];
+  border-color: var(--primary);
+}
+
+.cart-badge {
+  @apply absolute -right-2 -top-2 min-w-[18px] rounded-[10px] bg-[var(--accent-gold)] px-[0.45rem] py-[0.2rem] text-center text-[0.7rem] font-bold leading-none text-white;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
+}
+
+.user-menu {
+  @apply flex animate-fade-in items-center gap-3.5;
+}
+
+.user-name {
+  @apply max-w-[150px] truncate whitespace-nowrap text-[0.9rem] font-medium text-[var(--text-secondary)];
+}
+
+.role-chip {
+  @apply ml-2 inline-flex items-center justify-center rounded-full bg-[var(--bg-secondary)] px-[0.55rem] py-[0.2rem] text-[0.7rem] font-bold uppercase tracking-[0.08em] text-[var(--accent-copper)];
+}
+
+.inline-role-chip {
+  @apply ml-0 mt-2;
+}
+
+.status-chip {
+  @apply inline-flex items-center justify-center rounded-full border border-black/10 bg-[#f8f5ef] px-[0.62rem] py-[0.24rem] text-[0.72rem] font-bold uppercase text-[var(--text-secondary)];
+}
+
+.status-chip.active {
+  @apply bg-green-500/10 text-green-800;
+}
+
+.status-chip.inactive {
+  @apply bg-amber-500/15 text-amber-800;
+}
+
+.status-chip.archived {
+  @apply bg-gray-500/15 text-gray-700;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-danger {
+  @apply relative cursor-pointer overflow-hidden rounded-lg border-0 px-8 py-3.5 text-[0.95rem] font-semibold tracking-[0.02em] transition-all duration-300;
+}
+
+.btn-primary:disabled,
+.btn-secondary:disabled,
+.btn-danger:disabled {
+  @apply cursor-wait opacity-70 transform-none;
+}
+
+.btn-primary {
+  @apply bg-[var(--primary)] text-white shadow-[var(--shadow-sm)];
+}
+
+.btn-primary:hover:not(:disabled) {
+  @apply -translate-y-0.5 bg-[var(--secondary)] shadow-[var(--shadow-lg)];
+}
+
+.btn-secondary {
+  @apply border-[1.5px] border-[var(--primary)] bg-transparent text-[var(--primary)];
+}
+
+.btn-secondary:hover:not(:disabled) {
+  @apply -translate-y-0.5 bg-[var(--primary)] text-white shadow-[var(--shadow-md)];
+}
+
+.btn-danger {
+  @apply border-0 bg-[var(--danger)] text-white;
+}
+
+.btn-danger:hover:not(:disabled) {
+  @apply -translate-y-0.5 bg-[#9a3412] shadow-[var(--shadow-md)];
+}
+
+.section-title,
+.page-title {
+  @apply mb-4 animate-fade-in-slow text-center text-5xl;
+}
+
+.page-subtitle {
+  @apply mb-12 text-center text-lg text-[var(--text-secondary)];
+}
+
+.admin-search-box select {
+  @apply w-full rounded-xl border-[1.5px] border-[var(--border)] bg-white px-4 py-[0.9rem];
+}
+
+.account-sidebar,
+.account-content {
+  @apply shadow-[var(--shadow-sm)];
+}
+
+.cart-layout {
+  @apply grid grid-cols-[minmax(0,1.7fr)_minmax(320px,0.8fr)] items-start gap-10;
+}
+
+.line-caption,
+.order-date,
+.helper-text,
+.muted-copy {
+  @apply text-sm text-[var(--text-secondary)];
+}
+
+.line-price {
+  @apply font-bold;
+}
+
+.form-group {
+  @apply mb-7;
+}
+
+.form-group label {
+  @apply mb-3 block font-medium text-[var(--text-primary)];
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  @apply w-full rounded-lg border-[1.5px] border-[var(--border)] px-4 py-3.5 font-sans text-base transition-all duration-300;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  @apply outline-none shadow-[0_0_0_3px_rgba(212,175,55,0.1)];
+  border-color: var(--accent-gold);
+}
+
+.form-group textarea {
+  @apply min-h-[100px] resize-y;
+}
+
+.order-success {
+  @apply mx-auto my-12 max-w-[700px] rounded-2xl border border-[var(--border)] bg-white p-16 text-center shadow-[var(--shadow-lg)];
+}
+
+.success-icon {
+  @apply mx-auto mb-8 inline-flex h-20 w-20 items-center justify-center rounded-full font-bold tracking-[0.08em] text-white;
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-copper));
+}
+
+.order-id {
+  @apply my-8 rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-5 font-semibold text-[var(--accent-gold)];
+}
+
+.info-box {
+  @apply my-8 rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-8 text-left;
+}
+
+.info-box h3,
+.payment-title {
+  @apply mb-3;
+}
+
+.payment-bank {
+  @apply font-bold;
+}
+
+.account-sidebar {
+  @apply sticky top-[120px] h-fit rounded-xl border border-[var(--border)] bg-white p-8;
+}
+
+.account-user-info {
+  @apply mb-8 flex items-center gap-5 border-b border-[var(--border)] pb-8;
+}
+
+.account-avatar {
+  @apply flex h-14 w-14 items-center justify-center rounded-xl text-xl font-bold text-white;
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-copper));
+}
+
+.account-name {
+  @apply font-semibold;
+}
+
+.account-email {
+  @apply text-sm text-[var(--text-secondary)];
+}
+
+.account-menu {
+  @apply flex flex-col gap-2;
+}
+
+.account-menu-btn {
+  @apply w-full cursor-pointer rounded-lg border-0 bg-transparent px-5 py-4 text-left font-medium text-[var(--text-secondary)] transition-all duration-300;
+}
+
+.account-menu-btn:hover {
+  @apply bg-[var(--bg-secondary)] text-[var(--text-primary)];
+}
+
+.account-menu-btn.active {
+  @apply bg-[var(--bg-secondary)] text-[var(--accent-gold)];
+}
+
+.account-menu-btn.danger {
+  @apply text-[var(--danger)];
+}
+
+.account-content {
+  @apply rounded-xl border border-[var(--border)] bg-white p-10;
+}
+
+.section-heading {
+  @apply mb-6;
+}
+
+.order-status {
+  @apply self-start rounded-full bg-[var(--bg-secondary)] px-4 py-2 text-[0.85rem] font-semibold uppercase tracking-[0.05em];
+}
+
+.order-status.pending {
+  @apply bg-slate-100 text-slate-600;
+}
+
+.order-status.paid {
+  @apply bg-amber-100 text-amber-700;
+}
+
+.order-status.processed {
+  @apply bg-amber-100 text-amber-700;
+}
+
+.order-status.shipped {
+  @apply bg-blue-100 text-blue-700;
+}
+
+.order-status.completed {
+  @apply bg-green-100 text-green-800;
+}
+
+.order-status.cancelled {
+  @apply bg-red-100 text-red-700;
+}
+
+.admin-page-header {
+  @apply mb-8 flex items-start justify-between gap-6 rounded-2xl border border-[var(--border)] p-6 shadow-[var(--shadow-sm)];
+  background:
+    linear-gradient(135deg, rgba(212, 175, 55, 0.12), transparent 42%),
+    #fff;
+}
+
+.admin-page-title,
+.admin-page-subtitle {
+  @apply text-left;
+}
+
+.admin-page-subtitle {
+  @apply mb-0;
+}
+
+.admin-page-actions,
+.admin-form-actions {
+  @apply flex flex-wrap gap-3;
+}
+
+.admin-form-card,
+.admin-list-panel {
+  @apply rounded-[14px] border border-[var(--border)] bg-white p-8 shadow-[var(--shadow-sm)];
+}
+
+.admin-form-card {
+  @apply sticky top-[120px];
+}
+
+.admin-form-card h2,
+.admin-list-panel h2 {
+  @apply mb-6;
+}
+
+.admin-form-intro {
+  @apply mb-6 flex items-start justify-between gap-4;
+}
+
+.admin-form-row {
+  @apply grid grid-cols-2 gap-4;
+}
+
+.admin-list-toolbar {
+  @apply mb-6 flex items-end justify-between gap-4;
+}
+
+.admin-search-box {
+  @apply min-w-[300px];
+}
+
+.admin-search-label {
+  @apply mb-2 block text-[0.85rem] font-semibold text-[var(--text-secondary)];
+}
+
+.admin-search-box input {
+  @apply w-full rounded-xl border-[1.5px] border-[var(--border)] bg-white px-4 py-[0.9rem];
+}
+
+.content-card {
+  @apply rounded-[18px] border border-[var(--border)] bg-white p-8 shadow-[var(--shadow-sm)];
+}
+
+.accent-card {
+  @apply [background:radial-gradient(circle_at_top_left,rgba(212,175,55,0.14),transparent_38%),#fff];
+}
+
+.content-eyebrow {
+  @apply mb-[0.6rem] text-[0.85rem] font-bold uppercase tracking-[0.12em] text-[var(--accent-copper)];
+}
+
+.content-copy {
+  @apply leading-[1.9] text-[var(--text-secondary)];
+}
+
+.about-layout,
+.contact-layout,
+.testimonials-layout {
+  @apply grid grid-cols-2 gap-6;
+}
+
+.mission-list {
+  @apply grid gap-[0.9rem];
+}
+
+.mission-item {
+  @apply flex items-start gap-4 rounded-[14px] bg-[var(--bg-secondary)] px-[1.15rem] py-4;
+}
+
+.mission-item span {
+  @apply min-w-10 text-[0.85rem] font-bold text-[var(--accent-copper)];
+}
+
+.mission-item p,
+.profile-contact-list p {
+  @apply text-[var(--text-secondary)];
+}
+
+.profile-contact-list {
+  @apply grid gap-[0.6rem];
+}
+
+.testimonials-section {
+  @apply [background:linear-gradient(180deg,rgba(248,248,248,0.55),#fff)];
+}
+
+.testimonial-title {
+  @apply text-left;
+}
+
+.testimonial-grid {
+  @apply grid gap-4;
+}
+
+.testimonial-card {
+  @apply rounded-[18px] border border-[var(--border)] bg-white p-[1.6rem] shadow-[var(--shadow-sm)];
+}
+
+.testimonial-image,
+.testimonial-preview-image {
+  @apply w-full rounded-[14px] bg-[var(--bg-secondary)] object-cover;
+}
+
+.testimonial-image {
+  @apply mb-4 aspect-[16/11];
+}
+
+.testimonial-preview-image {
+  @apply mt-[0.9rem] aspect-[16/10];
+}
+
+.testimonial-stars {
+  @apply mb-4 text-[0.9rem] font-bold uppercase tracking-[0.08em] text-[var(--accent-gold)];
+}
+
+.testimonial-message {
+  @apply leading-[1.8] text-[var(--text-secondary)];
+}
+
+.testimonial-footer {
+  @apply mt-5 flex justify-between gap-4 text-[var(--text-light)];
+}
+
+.testimonial-form-card h2 {
+  @apply mb-4;
+}
+
+.testimonial-form-fields {
+  @apply m-0 border-0 p-0;
+}
+
+.testimonial-form-fields:disabled {
+  @apply opacity-[0.68];
+}
+
+.va-number {
+  @apply text-[1.1rem] tracking-[0.04em];
+}
+
+.footer {
+  @apply mt-24 bg-[var(--bg-dark)] px-8 pb-8 pt-16 text-white/70;
+}
+
+.footer-grid {
+  @apply mb-12 grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-12;
+}
+
+.footer-logo {
+  @apply mb-5 flex items-center gap-3 text-2xl font-bold text-white;
+}
+
+.footer h4 {
+  @apply mb-5 text-white;
+}
+
+.footer-links {
+  @apply list-none;
+}
+
+.footer-links li {
+  @apply mb-3;
+}
+
+.footer-links a {
+  @apply text-white/60 no-underline transition-colors duration-300;
+}
+
+.footer-links a:hover {
+  @apply text-[var(--accent-gold)];
+}
+
+.footer-bottom {
+  @apply border-t border-white/10 pt-8 text-center text-white/50;
+}
+
+.toast {
+  @apply fixed right-5 top-[100px] z-[2000] translate-x-[400px] cursor-pointer rounded-xl bg-[var(--primary)] px-7 py-5 font-medium text-white shadow-[var(--shadow-xl)] transition-transform duration-[400ms];
+}
+
+.toast.show {
+  @apply translate-x-0;
+}
+
+.toast.error {
+  @apply bg-[var(--accent-copper)];
+}
+
+[data-animate] {
+  @apply translate-y-[30px] opacity-0 transition-[opacity,transform] duration-[600ms];
+}
+
+[data-animate].in-view {
+  @apply translate-y-0 opacity-100;
+}
+
+.ripple-effect {
+  @apply pointer-events-none absolute scale-0 animate-ripple rounded-full bg-white/40;
+}
+
+@media (max-width: 992px) {
+  .cart-layout,
+  .about-layout,
+  .contact-layout,
+  .testimonials-layout {
+    @apply grid-cols-1;
+  }
+
+  .account-sidebar,
+  .admin-form-card {
+    @apply static;
+  }
+
+  .admin-form-row {
+    @apply grid-cols-1;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    @apply order-3 flex w-full gap-[0.85rem] overflow-x-auto pb-[0.1rem] pt-[0.35rem];
+  }
+
+  .nav-link {
+    @apply flex-none whitespace-nowrap;
+  }
+
+  .container {
+    @apply px-5;
+  }
+
+  .header-content {
+    @apply flex-wrap gap-[0.85rem] px-5 py-[0.9rem];
+  }
+
+  .logo {
+    @apply text-2xl;
+  }
+
+  .logo-image {
+    @apply h-10 w-10;
+  }
+
+  .user-name {
+    @apply hidden;
+  }
+
+  .section-title,
+  .page-title {
+    @apply text-[2.5rem];
+  }
+
+  .admin-form-row {
+    @apply grid-cols-1;
+  }
+
+  .admin-page-header,
+  .admin-form-intro,
+  .admin-list-toolbar,
+  .admin-page-actions,
+  .admin-form-actions,
+  .testimonial-footer {
+    @apply flex-col items-stretch;
+  }
+
+  .admin-search-box {
+    @apply min-w-0;
+  }
+
+  .toast {
+    @apply left-4 right-4;
+  }
+
+  .account-content,
+  .order-success {
+    @apply px-6 py-8;
+  }
+}
+
+/* Marketplace navbar and seller-center shell */
+.header {
+  @apply min-h-[76px];
+}
+
+.header-content {
+  @apply grid grid-cols-[auto_minmax(320px,1fr)_minmax(240px,360px)_auto] items-center gap-5;
+}
+
+.nav ul,
+.admin-sidebar-nav ul {
+  @apply flex list-none items-center gap-[0.35rem];
+}
+
+.nav {
+  @apply justify-self-center gap-0;
+}
+
+.nav-link {
+  @apply inline-flex min-h-[42px] items-center rounded-full px-[0.9rem] py-[0.55rem];
+}
+
+.nav-link:hover,
+.nav-link.active {
+  @apply bg-[#fff8e1] text-[var(--text-primary)];
+}
+
+.navbar-search {
+  @apply relative flex min-h-11 w-full items-center rounded-full border-[1.5px] border-[var(--border)] bg-[var(--bg-secondary)] transition-[border-color,box-shadow,background] duration-200;
+}
+
+.navbar-search:focus-within {
+  @apply bg-white shadow-[0_0_0_3px_rgba(212,175,55,0.1)];
+  border-color: var(--accent-gold);
+}
+
+.navbar-search svg,
+.nav-icon-btn svg,
+.cart-btn svg,
+.mobile-menu-toggle svg {
+  @apply h-5 w-5 fill-none stroke-current;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.navbar-search svg {
+  @apply ml-4 text-[var(--text-light)];
+}
+
+.navbar-search input {
+  @apply w-full border-0 bg-transparent py-3 pl-[0.65rem] pr-4 outline-none;
+}
+
+.header-actions {
+  @apply justify-end;
+}
+
+.cart-btn,
+.nav-icon-btn,
+.mobile-menu-toggle {
+  @apply h-11 w-11 rounded-full p-0;
+}
+
+.nav-icon-btn,
+.mobile-menu-toggle {
+  @apply inline-flex cursor-pointer items-center justify-center border-[1.5px] border-[var(--border)] bg-white text-[var(--text-primary)] transition-all duration-[250ms];
+}
+
+.nav-icon-btn:hover,
+.mobile-menu-toggle:hover {
+  @apply shadow-[var(--shadow-sm)];
+  border-color: var(--accent-gold);
+}
+
+.mobile-menu-toggle {
+  @apply hidden;
+}
+
+.guest-actions {
+  @apply flex items-center gap-[0.65rem];
+}
+
+.guest-actions .btn-primary,
+.guest-actions .btn-secondary,
+.desktop-logout {
+  @apply rounded-full px-4 py-[0.7rem];
+}
+
+.account-loading {
+  @apply inline-flex min-h-[42px] min-w-[118px] items-center justify-center rounded-full bg-[var(--bg-secondary)] text-[0.85rem] text-[var(--text-secondary)];
+}
+
+.account-dropdown {
+  @apply relative;
+}
+
+.account-trigger {
+  @apply inline-flex min-h-11 cursor-pointer items-center gap-[0.65rem] rounded-full border-[1.5px] border-[var(--border)] bg-white py-[0.35rem] pl-[0.35rem] pr-[0.85rem] text-[var(--text-primary)] transition-all duration-[250ms];
+}
+
+.account-trigger:hover,
+.account-trigger:focus-visible {
+  @apply shadow-[var(--shadow-sm)];
+  border-color: var(--accent-gold);
+}
+
+.account-avatar-small {
+  @apply inline-flex h-[34px] w-[34px] items-center justify-center rounded-full font-extrabold text-white;
+  background: linear-gradient(135deg, var(--primary), var(--accent-copper));
+}
+
+.account-trigger-copy {
+  @apply grid text-left leading-[1.15];
+}
+
+.account-trigger-copy span {
+  @apply max-w-[110px] truncate whitespace-nowrap font-bold;
+}
+
+.account-trigger-copy small {
+  @apply text-[0.72rem] uppercase text-[var(--text-light)];
+}
+
+.account-menu-popover {
+  @apply pointer-events-none absolute right-0 top-[calc(100%+0.65rem)] z-[1300] min-w-[220px] translate-y-[-6px] rounded-[14px] border border-[var(--border)] bg-white p-2 opacity-0 shadow-[var(--shadow-xl)] transition-[opacity,transform] duration-200;
+}
+
+.account-menu-popover.open {
+  @apply pointer-events-auto translate-y-0 opacity-100;
+}
+
+.account-menu-popover button {
+  @apply w-full cursor-pointer rounded-[10px] border-0 bg-transparent px-[0.9rem] py-[0.8rem] text-left text-[var(--text-primary)] transition-colors duration-200;
+}
+
+.account-menu-popover button:hover,
+.account-menu-popover button:focus-visible {
+  @apply bg-[var(--bg-secondary)];
+}
+
+.account-menu-popover button.danger {
+  @apply text-[var(--danger)];
+}
+
+.header button:focus-visible,
+.header a:focus-visible,
+.admin-topbar button:focus-visible,
+.admin-sidebar a:focus-visible,
+.admin-sidebar button:focus-visible {
+  @apply outline outline-[3px] outline-offset-2 outline-[rgba(212,175,55,0.35)];
+}
+
+.admin-shell {
+  @apply bg-[#f6f5f2];
+}
+
+.admin-shell .app-main {
+  @apply min-h-screen pl-[272px] pt-[76px];
+}
+
+.admin-shell .page-section {
+  @apply pt-8;
+}
+
+.admin-sidebar {
+  @apply fixed bottom-0 left-0 top-0 z-[1200] w-[272px] border-r border-[var(--border)] bg-[#111] p-5 text-white shadow-[var(--shadow-lg)];
+}
+
+.admin-sidebar-brand {
+  @apply mb-6 flex w-full cursor-pointer items-center gap-[0.8rem] text-left text-white;
+}
+
+.admin-sidebar-brand .logo-image {
+  @apply h-11 w-11 rounded-xl bg-white;
+}
+
+.admin-sidebar-brand span {
+  @apply grid leading-[1.2];
+}
+
+.admin-sidebar-brand small {
+  @apply text-white/60;
+}
+
+.admin-sidebar-nav ul {
+  @apply flex-col items-stretch gap-[0.45rem];
+}
+
+.admin-sidebar-link {
+  @apply flex min-h-[46px] items-center rounded-xl px-4 py-[0.85rem] font-extrabold text-white/70 no-underline transition-all duration-200;
+}
+
+.admin-sidebar-link:hover,
+.admin-sidebar-link.active {
+  @apply bg-[rgba(212,175,55,0.16)] text-white;
+}
+
+.admin-sidebar-link.active {
+  @apply shadow-[inset_3px_0_0_var(--accent-gold)];
+}
+
+.admin-topbar {
+  @apply fixed right-0 top-0 z-[1100] flex min-h-[76px] items-center justify-between gap-4 border-b border-[var(--border)] bg-[rgba(255,255,255,0.96)] px-8 py-[0.85rem] backdrop-blur-[18px] transition-shadow duration-[250ms] left-[272px];
+}
+
+.admin-topbar.scrolled {
+  @apply shadow-[var(--shadow-md)];
+}
+
+.admin-topbar h1 {
+  @apply m-0 font-sans text-[1.35rem] font-black;
+}
+
+.admin-topbar .content-eyebrow {
+  @apply mb-[0.15rem];
+}
+
+.admin-topbar-actions {
+  @apply flex items-center gap-3;
+}
+
+/* Admin interface polish */
+.admin-shell {
+  @apply bg-slate-50 text-slate-900;
+}
+
+.admin-shell .container {
+  @apply max-w-[1280px];
+}
+
+.admin-shell .page-section {
+  @apply pb-12 pt-7;
+}
+
+.admin-shell .tw-btn {
+  @apply min-h-10 rounded-md px-3.5 py-2 text-[0.86rem] shadow-none;
+}
+
+.admin-shell .tw-btn-primary {
+  @apply bg-slate-900 text-white hover:bg-slate-700;
+}
+
+.admin-shell .tw-btn-secondary {
+  @apply border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50;
+}
+
+.admin-shell .tw-btn-danger {
+  @apply bg-red-600 hover:bg-red-700;
+}
+
+.admin-shell .tw-input,
+.admin-shell input,
+.admin-shell textarea,
+.admin-shell select {
+  @apply rounded-md border-slate-200 bg-white text-sm shadow-none focus:border-slate-400 focus:ring-slate-200;
+}
+
+.admin-page-header {
+  @apply mb-6 rounded-none border-0 bg-transparent p-0 shadow-none;
+  background: transparent;
+}
+
+.admin-page-title {
+  @apply font-sans text-[1.9rem] font-bold leading-tight text-slate-950 md:text-[2.15rem];
+}
+
+.admin-page-subtitle {
+  @apply mt-2 max-w-2xl text-sm leading-6 text-slate-500;
+}
+
+.admin-page-actions,
+.admin-form-actions {
+  @apply items-center gap-2;
+}
+
+.admin-summary-grid {
+  @apply gap-3;
+}
+
+.admin-summary-card {
+  @apply rounded-lg border border-slate-200 bg-white p-4 shadow-none;
+}
+
+.admin-summary-card span {
+  @apply text-xs font-semibold uppercase tracking-wide text-slate-500;
+}
+
+.admin-summary-card strong {
+  @apply mt-1 text-[1.45rem] font-bold leading-tight text-slate-950;
+}
+
+.admin-form-card,
+.admin-list-panel,
+.admin-report-filter,
+.content-card,
+.admin-shell .order-card {
+  @apply rounded-lg border border-slate-200 bg-white p-6 shadow-none;
+}
+
+.accent-card {
+  background: #fff;
+}
+
+.content-eyebrow,
+.admin-form-highlight-label {
+  @apply text-[0.72rem] tracking-[0.08em] text-slate-500;
+}
+
+.helper-text,
+.admin-page-subtitle,
+.admin-search-label,
+.admin-shell .text-brand-muted {
+  @apply text-slate-500;
+}
+
+.admin-form-intro,
+.admin-list-toolbar {
+  @apply mb-5 items-start border-b border-slate-100 pb-5;
+}
+
+.admin-list-toolbar h2,
+.admin-form-card h2,
+.admin-list-panel h2,
+.content-card h2 {
+  @apply mb-1 font-sans text-xl font-bold leading-tight text-slate-950;
+}
+
+.admin-search-box {
+  @apply min-w-[260px];
+}
+
+.admin-search-box input,
+.admin-search-box select {
+  @apply rounded-md border-slate-200 bg-white;
+}
+
+.dashboard-list {
+  @apply mt-4;
+}
+
+.dashboard-list-item,
+.admin-product-card {
+  @apply rounded-lg border-slate-200 shadow-none hover:border-slate-300 hover:shadow-none;
+}
+
+.dashboard-list-item strong,
+.admin-product-card h3,
+.admin-shell .order-number {
+  @apply font-sans font-bold text-slate-950;
+}
+
+.admin-product-form-card {
+  @apply top-[100px];
+}
+
+.admin-image-workbench {
+  @apply mb-5 gap-4;
+}
+
+.admin-simple-upload {
+  @apply mb-5 flex items-start gap-4 rounded-lg border border-slate-200 bg-slate-50 p-3;
+}
+
+.admin-simple-upload-preview {
+  @apply h-20 w-20 shrink-0 overflow-hidden rounded-md border border-slate-200 bg-white;
+}
+
+.admin-form-mini-summary {
+  @apply mb-5 grid grid-cols-3 gap-2 rounded-lg border border-slate-200 bg-slate-50 p-2 text-center text-xs font-semibold text-slate-600;
+}
+
+.admin-form-mini-summary span {
+  @apply truncate rounded-md bg-white px-2 py-2;
+}
+
+.admin-image-preview-card,
+.admin-upload-panel,
+.admin-upload-dropzone,
+.admin-form-highlight,
+.admin-product-image-shell,
+.admin-product-metric,
+.order-customer-block,
+.order-meta-block {
+  @apply rounded-lg border-slate-200 bg-slate-50;
+}
+
+.admin-upload-dropzone {
+  @apply hover:translate-y-0 hover:border-slate-300;
+}
+
+.admin-image-preview-card {
+  @apply overflow-hidden;
+}
+
+.admin-image-preview-copy {
+  @apply bg-white p-4;
+}
+
+.admin-image-preview-copy strong {
+  @apply text-base;
+}
+
+.admin-form-row {
+  @apply gap-3;
+}
+
+.admin-product-card {
+  @apply gap-4 p-4 md:grid-cols-[132px_1fr];
+}
+
+.admin-product-image {
+  @apply min-h-[132px];
+}
+
+.admin-product-top h3 {
+  @apply text-xl;
+}
+
+.admin-product-description {
+  @apply my-3 line-clamp-2 text-sm leading-6;
+}
+
+.admin-product-metrics {
+  @apply mb-4 gap-2;
+}
+
+.admin-product-metric {
+  @apply px-3 py-2;
+}
+
+.admin-product-actions {
+  @apply gap-2;
+}
+
+.admin-shell .role-chip,
+.admin-shell .status-chip,
+.admin-shell .order-status {
+  @apply ml-0 rounded-md px-2.5 py-1 text-[0.72rem] font-semibold tracking-normal;
+}
+
+.admin-shell .order-header {
+  @apply mb-4 border-slate-100 pb-4;
+}
+
+.admin-shell .order-customer-block {
+  @apply mb-4 p-4;
+}
+
+.admin-shell .order-customer-grid {
+  @apply gap-3;
+}
+
+.admin-shell .order-item {
+  @apply mb-3 rounded-md border border-slate-100 bg-white p-3;
+}
+
+.admin-shell .order-item-image {
+  @apply h-14 w-14 rounded-md;
+}
+
+.admin-shell .order-total {
+  @apply mt-3 border-slate-200 pt-3;
+}
+
+.admin-tracking-box {
+  @apply min-w-[220px];
+}
+
+.admin-report-layout {
+  @apply gap-6;
+}
+
+.report-detail-list > div {
+  @apply border-slate-100;
+}
+
+.admin-report-table-wrap {
+  @apply overflow-x-auto rounded-lg border border-slate-200;
+}
+
+.admin-report-table {
+  @apply w-full min-w-[420px] border-collapse bg-white text-sm;
+}
+
+.admin-report-table th {
+  @apply border-b border-slate-200 bg-slate-50 px-4 py-3 text-left text-xs font-bold uppercase tracking-wide text-slate-500;
+}
+
+.admin-report-table td {
+  @apply border-b border-slate-100 px-4 py-3 text-slate-600;
+}
+
+.admin-report-table tbody tr:last-child td {
+  @apply border-b-0;
+}
+
+.admin-report-table strong {
+  @apply text-slate-950;
+}
+
+.admin-sidebar {
+  @apply w-[248px] border-slate-800 bg-slate-950 p-4 shadow-none;
+}
+
+.admin-sidebar-brand {
+  @apply mb-5 rounded-lg px-2 py-1;
+}
+
+.admin-sidebar-brand .logo-image {
+  @apply h-10 w-10 rounded-lg;
+}
+
+.admin-sidebar-link {
+  @apply min-h-10 rounded-md px-3 py-2 text-sm font-semibold text-slate-300;
+}
+
+.admin-sidebar-link:hover,
+.admin-sidebar-link.active {
+  @apply bg-white/10 text-white shadow-none;
+}
+
+.admin-sidebar-link.active {
+  @apply bg-white text-slate-950;
+  box-shadow: none;
+}
+
+.admin-topbar {
+  @apply left-[248px] min-h-[70px] border-slate-200 px-7 py-3 shadow-none;
+}
+
+.admin-topbar.scrolled {
+  @apply shadow-sm;
+}
+
+.admin-topbar h1 {
+  @apply text-lg font-bold text-slate-950;
+}
+
+.admin-topbar .content-eyebrow {
+  @apply text-[0.68rem] text-slate-500;
+}
+
+.admin-shell .app-main {
+  @apply pl-[248px] pt-[70px];
+}
+
+@media (max-width: 1180px) {
+  .header-content {
+    @apply grid-cols-[auto_minmax(0,1fr)_auto];
+  }
+
+  .navbar-search {
+    @apply col-[2] row-[2];
+  }
+
+  .nav {
+    @apply justify-self-start;
+  }
+}
+
+@media (max-width: 900px) {
+  .header-content {
+    @apply grid-cols-[auto_1fr_auto];
+  }
+
+  .mobile-menu-toggle {
+    @apply inline-flex justify-self-end;
+    @apply col-[3] row-[1];
+  }
+
+  .nav {
+    @apply col-span-full row-[2] grid w-full grid-rows-[0fr] overflow-hidden;
+    transition: grid-template-rows 0.25s ease;
+  }
+
+  .nav.open {
+    @apply grid-rows-[1fr];
+  }
+
+  .nav ul {
+    @apply min-h-0 flex-col items-stretch gap-[0.35rem];
+  }
+
+  .nav-link {
+    @apply w-full justify-center;
+  }
+
+  .navbar-search {
+    @apply col-span-full row-[3];
+  }
+
+  .header-actions {
+    @apply w-auto justify-end justify-self-end;
+    @apply col-[2] row-[1];
+  }
+
+  .account-trigger-copy,
+  .desktop-logout {
+    @apply hidden;
+  }
+
+  .admin-shell .app-main {
+    @apply pl-0 pt-[142px];
+  }
+
+  .admin-sidebar {
+    @apply bottom-auto right-0 top-[76px] min-h-16 w-auto border-r-0 px-4 py-[0.65rem];
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .admin-sidebar-brand {
+    @apply hidden;
+  }
+
+  .admin-sidebar-nav ul {
+    @apply flex-row overflow-x-auto;
+  }
+
+  .admin-sidebar-link {
+    @apply min-w-28 justify-center whitespace-nowrap;
+  }
+
+  .admin-topbar {
+    @apply left-0 px-4 py-3;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-content {
+    @apply px-4 py-3;
+  }
+
+  .guest-actions {
+    @apply gap-[0.45rem];
+  }
+
+  .guest-actions .btn-secondary {
+    @apply hidden;
+  }
+
+  .account-menu-popover {
+    @apply left-0 right-auto;
+  }
+
+  .admin-topbar h1 {
+    @apply text-[1.1rem];
+  }
+
+  .admin-topbar .content-eyebrow,
+  .admin-topbar .desktop-logout {
+    @apply hidden;
+  }
+}
