@@ -81,7 +81,7 @@ class ApiEndpointsTest extends TestCase
         $loginResponse
             ->assertOk()
             ->assertJsonPath('message', 'Login berhasil.')
-            ->assertJsonPath('user.email', 'admin@larisdy.com')
+            ->assertJsonPath('user.email', 'Larisdy.5@gmail.com')
             ->assertJsonPath('user.role', User::ROLE_ADMIN);
 
         $token = $loginResponse->json('token');
@@ -89,7 +89,7 @@ class ApiEndpointsTest extends TestCase
         $this->withToken($token)
             ->getJson('/api/user')
             ->assertOk()
-            ->assertJsonPath('data.email', 'admin@larisdy.com')
+            ->assertJsonPath('data.email', 'Larisdy.5@gmail.com')
             ->assertJsonPath('data.role', User::ROLE_ADMIN);
     }
 
@@ -206,7 +206,7 @@ class ApiEndpointsTest extends TestCase
             ->assertJsonValidationErrors('items')
             ->assertJsonPath('errors.items.0', 'Produk yang dipilih tidak tersedia.');
 
-        $admin = User::query()->where('email', 'admin@larisdy.com')->firstOrFail();
+        $admin = User::query()->where('email', 'Larisdy.5@gmail.com')->firstOrFail();
         Sanctum::actingAs($admin);
 
         $adminProducts = $this->getJson('/api/admin/products')
@@ -392,7 +392,7 @@ class ApiEndpointsTest extends TestCase
             ->assertOk()
             ->assertJsonPath('data.unread_count', 0);
 
-        $admin = User::query()->where('email', 'admin@larisdy.com')->firstOrFail();
+        $admin = User::query()->where('email', 'Larisdy.5@gmail.com')->firstOrFail();
         Sanctum::actingAs($admin);
 
         $this->getJson('/api/notifications')
@@ -481,7 +481,7 @@ class ApiEndpointsTest extends TestCase
             ->assertCreated()
             ->assertJsonPath('data.payment_proof.verification_status', PaymentProof::STATUS_PENDING);
 
-        $admin = User::query()->where('email', 'admin@larisdy.com')->firstOrFail();
+        $admin = User::query()->where('email', 'Larisdy.5@gmail.com')->firstOrFail();
         Sanctum::actingAs($admin);
 
         $this->postJson("/api/admin/orders/{$order['id']}/payment-proof/verify")
@@ -629,7 +629,7 @@ class ApiEndpointsTest extends TestCase
             ->assertCreated()
             ->json('data');
 
-        $admin = User::query()->where('email', 'admin@larisdy.com')->firstOrFail();
+        $admin = User::query()->where('email', 'Larisdy.5@gmail.com')->firstOrFail();
         Sanctum::actingAs($admin);
 
         $this->putJson("/api/admin/orders/{$order['id']}", ['status' => 'paid'])
@@ -694,7 +694,7 @@ class ApiEndpointsTest extends TestCase
             ->assertUnprocessable()
             ->assertJsonPath('message', 'Bukti pembayaran sudah terkirim dan sedang menunggu verifikasi admin.');
 
-        $admin = User::query()->where('email', 'admin@larisdy.com')->firstOrFail();
+        $admin = User::query()->where('email', 'Larisdy.5@gmail.com')->firstOrFail();
         Sanctum::actingAs($admin);
 
         $this->postJson("/api/admin/orders/{$order['id']}/payment-proof/verify")
@@ -731,7 +731,7 @@ class ApiEndpointsTest extends TestCase
             'Accept' => 'application/json',
         ])->assertCreated();
 
-        $admin = User::query()->where('email', 'admin@larisdy.com')->firstOrFail();
+        $admin = User::query()->where('email', 'Larisdy.5@gmail.com')->firstOrFail();
         Sanctum::actingAs($admin);
 
         $this->postJson("/api/admin/orders/{$order['id']}/payment-proof/reject", [
@@ -808,7 +808,7 @@ class ApiEndpointsTest extends TestCase
             'status_updated_at' => now(),
         ]);
 
-        $admin = User::query()->where('email', 'admin@larisdy.com')->firstOrFail();
+        $admin = User::query()->where('email', 'Larisdy.5@gmail.com')->firstOrFail();
         Sanctum::actingAs($admin);
 
         $this->getJson('/api/admin/orders')
@@ -932,7 +932,7 @@ class ApiEndpointsTest extends TestCase
         $customer = User::query()->where('email', 'user@gmail.com')->firstOrFail();
         $createdOrder = $this->createOrderForCustomer($customer, 1);
 
-        $admin = User::query()->where('email', 'admin@larisdy.com')->firstOrFail();
+        $admin = User::query()->where('email', 'Larisdy.5@gmail.com')->firstOrFail();
         Sanctum::actingAs($admin);
 
         $this->patchJson("/api/orders/{$createdOrder['id']}/status", ['status' => Order::STATUS_PAID])
@@ -952,7 +952,7 @@ class ApiEndpointsTest extends TestCase
     public function test_admin_sales_summary_counts_paid_orders_only_and_supports_filters(): void
     {
         $customer = User::query()->where('email', 'user@gmail.com')->firstOrFail();
-        $admin = User::query()->where('email', 'admin@larisdy.com')->firstOrFail();
+        $admin = User::query()->where('email', 'Larisdy.5@gmail.com')->firstOrFail();
         $firstProduct = Product::query()->findOrFail(1);
         $secondProduct = Product::query()->findOrFail(2);
 
@@ -1196,7 +1196,7 @@ class ApiEndpointsTest extends TestCase
     private function adminCredentials(): array
     {
         return [
-            'email' => 'admin@larisdy.com',
+            'email' => 'Larisdy.5@gmail.com',
             'password' => 'password',
         ];
     }
