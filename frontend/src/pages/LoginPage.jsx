@@ -46,20 +46,6 @@ function LoginPage() {
     }));
   }
 
-  function fillAdminCredentials() {
-    setForm({
-      email: "admin@larisdy.com",
-      password: "password",
-    });
-  }
-
-  function fillCustomerCredentials() {
-    setForm({
-      email: "user@gmail.com",
-      password: "password",
-    });
-  }
-
   async function handleSubmit(event) {
     event.preventDefault();
     setIsSubmitting(true);
@@ -118,22 +104,6 @@ function LoginPage() {
         <p className="text-center text-brand-muted">
           Belum punya akun? <Link to="/register" className="font-semibold text-brand-gold transition hover:text-brand-brown">Daftar Sekarang</Link>
         </p>
-
-        <div className="mt-8 rounded-xl border border-brand-border bg-brand-cream p-6 text-center text-sm text-brand-muted">
-          <p>
-            <strong className="text-brand-black">Akun Seeder:</strong>
-          </p>
-          <p>Admin: admin@larisdy.com / password</p>
-          <p>Customer: user@gmail.com / password</p>
-          <div className="mt-4 flex flex-wrap justify-center gap-3">
-            <Button type="button" variant="secondary" className="ui-ripple" onClick={fillAdminCredentials}>
-              Isi Admin
-            </Button>
-            <Button type="button" variant="secondary" className="ui-ripple" onClick={fillCustomerCredentials}>
-              Isi Customer
-            </Button>
-          </div>
-        </div>
       </div>
     </section>
   );

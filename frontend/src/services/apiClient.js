@@ -46,7 +46,7 @@ async function request(endpoint, options = {}) {
     }
 
     throw new Error(
-      `Tidak dapat terhubung ke Laravel API di ${API_BASE_URL}. Pastikan backend aktif dengan php artisan serve.`,
+      "Tidak dapat terhubung ke layanan Larisdy. Coba muat ulang halaman beberapa saat lagi.",
     );
   }
 

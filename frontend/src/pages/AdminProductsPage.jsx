@@ -556,7 +556,7 @@ function AdminProductsPage() {
 
             {isLoading ? (
               <StatusCard>
-                <p>Memuat produk dari Laravel API...</p>
+                <p>Memuat daftar produk...</p>
               </StatusCard>
             ) : filteredProducts.length === 0 ? (
               <StatusCard>

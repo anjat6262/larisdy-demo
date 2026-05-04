@@ -151,7 +151,7 @@ function CustomerOrdersPage() {
           <div>
             <h1 className="text-left text-4xl font-bold md:text-5xl">Pesanan Saya</h1>
             <p className="mt-4 max-w-2xl text-left text-lg text-brand-muted">
-              Status order, pembayaran, dan resi ditarik langsung dari Laravel API secara real-time.
+              Pantau status order, pembayaran, dan resi pengiriman dari satu halaman.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -166,7 +166,7 @@ function CustomerOrdersPage() {
 
         {isLoading ? (
           <div className="mx-auto my-8 max-w-[760px] rounded-2xl border border-brand-border bg-white p-8 text-center shadow-larisdy-sm">
-            <p>Memuat pesanan dari Laravel API...</p>
+            <p>Memuat pesanan Anda...</p>
           </div>
         ) : orders.length === 0 ? (
           <EmptyState

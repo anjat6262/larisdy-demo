@@ -282,7 +282,7 @@ function ProductDetailPage() {
             <div className="mt-4 grid gap-3 sm:grid-cols-3">
               <span className="rounded-xl border border-brand-border bg-white p-3 text-center text-sm text-brand-muted">Produk siap kirim</span>
               <span className="rounded-xl border border-brand-border bg-white p-3 text-center text-sm text-brand-muted">Pembayaran aman</span>
-              <span className="rounded-xl border border-brand-border bg-white p-3 text-center text-sm text-brand-muted">Stok real-time</span>
+              <span className="rounded-xl border border-brand-border bg-white p-3 text-center text-sm text-brand-muted">Stok tersedia</span>
             </div>
           </div>
 

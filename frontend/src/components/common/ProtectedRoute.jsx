@@ -12,7 +12,7 @@ function ProtectedRoute({ children, allowedRoles = [] }) {
         <div className="container">
           <StatusCard>
             <h2>Memuat sesi Anda...</h2>
-            <p>Menyiapkan data akun dan pesanan dari Laravel API.</p>
+        <p>Menyiapkan data akun dan pesanan Anda.</p>
           </StatusCard>
         </div>
       </section>

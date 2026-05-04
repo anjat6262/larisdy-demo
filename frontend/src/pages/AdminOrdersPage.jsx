@@ -173,7 +173,7 @@ function AdminOrdersPage() {
 
         {isLoading ? (
           <StatusCard>
-            <p>Memuat seluruh pesanan dari Laravel API...</p>
+            <p>Memuat seluruh pesanan...</p>
           </StatusCard>
         ) : orders.length === 0 ? (
           <EmptyState

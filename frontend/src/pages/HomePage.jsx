@@ -98,7 +98,7 @@ function HomePage() {
 
           {isLoading ? (
             <div className="mx-auto my-8 max-w-[760px] rounded-2xl border border-brand-border bg-white p-8 text-center shadow-larisdy-sm">
-              <p>Memuat produk unggulan dari Laravel API...</p>
+              <p>Memuat produk unggulan...</p>
             </div>
           ) : (
             <div className="my-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

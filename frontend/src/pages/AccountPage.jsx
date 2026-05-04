@@ -119,7 +119,7 @@ function AccountPage() {
                 <p>
                   {isAdmin
                     ? "Akun admin bisa mengelola pesanan dan produk dari dashboard khusus admin."
-                    : "Profil akun tersinkron dengan Laravel API, dan status pesanan Anda tersedia di halaman Pesanan Saya."}
+                    : "Profil akun Anda tersimpan dengan aman, dan status pesanan tersedia di halaman Pesanan Saya."}
                 </p>
               </StatusCard>
 
