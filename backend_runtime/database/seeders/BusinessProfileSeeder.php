@@ -20,7 +20,7 @@ class BusinessProfileSeeder extends Seeder
                     'Memanfaatkan teknologi digital untuk pemasaran',
                     'Membangun kepercayaan pelanggan',
                 ],
-                'support_email' => 'support@larisdy.com',
+                'support_email' => 'Larisdy.5@gmail.com',
                 'support_phone' => '858-2355-4027',
                 'address' => 'Sentra IKM Kakenturan 1, Kec. Maesa, Sulawesi Utara',
                 'hero_title' => 'Sambal Premium Khas Indonesia',

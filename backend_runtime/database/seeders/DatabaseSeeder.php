@@ -10,17 +10,8 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        $adminEmail = 'Larisdy.5@gmail.com';
-
-        $legacyAdmin = User::query()->where('email', 'admin@larisdy.com')->first();
-
-        if ($legacyAdmin && ! User::query()->where('email', $adminEmail)->exists()) {
-            $legacyAdmin->email = $adminEmail;
-            $legacyAdmin->save();
-        }
-
         User::query()->updateOrCreate(
-            ['email' => $adminEmail],
+            ['email' => 'admin@larisdy.com'],
             [
                 'name' => 'Admin Larisdy',
                 'phone' => '0812-0000-0001',

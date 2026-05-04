@@ -98,7 +98,7 @@ php artisan larisdy:copy-sqlite-to-mysql --sqlite=database/runtime.sqlite --trun
 
 Checklist setelah migrasi:
 
-- Login admin: `Larisdy.5@gmail.com`
+- Login admin: `admin@larisdy.com`
 - Login customer: `user@gmail.com`
 - Buka katalog produk
 - Checkout order QRIS
