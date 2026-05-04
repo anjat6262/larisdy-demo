@@ -90,7 +90,8 @@ powershell -ExecutionPolicy Bypass -File .\test-all.ps1 -SkipE2E
 
 ## Deploy Demo Gratis
 
-Backend Laravel bisa dideploy ke Render memakai Blueprint `render.yaml`:
+Backend Laravel bisa dideploy ke Render memakai Blueprint `render.yaml`.
+Konfigurasi demo ini memakai SQLite ephemeral agar tetap gratis tanpa membuat database berbayar:
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/anjat6262/larisdy-demo)
 

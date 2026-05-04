@@ -9,6 +9,10 @@ if [ -n "${RENDER_EXTERNAL_URL:-}" ]; then
   export APP_URL="$RENDER_EXTERNAL_URL"
 fi
 
+if [ "${DB_CONNECTION:-}" = "sqlite" ]; then
+  touch "${DB_DATABASE:-/tmp/larisdy.sqlite}"
+fi
+
 php artisan config:clear
 php artisan migrate --force
 php artisan db:seed --force
