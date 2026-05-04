@@ -1526,3 +1526,258 @@ img {
     @apply pt-6 text-sm leading-6;
   }
 }
+
+@media (max-width: 640px) {
+  .admin-shell .app-main {
+    @apply pt-[126px];
+  }
+
+  .admin-shell .container {
+    @apply px-4;
+  }
+
+  .admin-shell .page-section {
+    @apply py-7;
+  }
+
+  .admin-topbar {
+    @apply min-h-[68px] px-4 py-3;
+  }
+
+  .admin-topbar h1 {
+    @apply max-w-[170px] truncate text-base;
+  }
+
+  .admin-topbar-actions {
+    @apply gap-2;
+  }
+
+  .admin-sidebar {
+    @apply top-[68px] min-h-[58px] px-3 py-2;
+  }
+
+  .admin-sidebar-nav ul {
+    @apply grid w-full grid-cols-4 gap-2 overflow-visible;
+  }
+
+  .admin-sidebar-nav li {
+    @apply min-w-0;
+  }
+
+  .admin-sidebar-link {
+    @apply min-h-10 min-w-0 justify-center rounded-md px-2 py-2 text-[0.78rem];
+  }
+
+  .admin-page-header {
+    @apply mb-5 grid gap-5 p-0 text-left;
+  }
+
+  .admin-page-title {
+    @apply mb-3 text-[1.85rem] leading-[1.08];
+  }
+
+  .admin-page-subtitle {
+    @apply mb-0 max-w-none text-[0.98rem] leading-7;
+  }
+
+  .admin-page-actions,
+  .admin-form-actions {
+    @apply grid w-full grid-cols-2 gap-2;
+  }
+
+  .admin-page-actions > :is(.tw-btn-primary, .tw-btn-secondary, .tw-btn-danger),
+  .admin-form-actions > :is(.tw-btn-primary, .tw-btn-secondary, .tw-btn-danger) {
+    @apply min-h-11 w-full px-3 text-[0.86rem];
+  }
+
+  .admin-page-actions > :first-child:nth-last-child(3) ~ :last-child,
+  .admin-form-actions > :first-child:nth-last-child(3) ~ :last-child {
+    @apply col-span-2;
+  }
+
+  .admin-summary-grid {
+    @apply grid-cols-2 gap-3;
+  }
+
+  .admin-summary-card {
+    @apply p-4;
+  }
+
+  .admin-summary-card span {
+    @apply text-[0.68rem] leading-4;
+  }
+
+  .admin-summary-card strong {
+    @apply mt-2 text-[1.35rem];
+  }
+
+  .admin-form-card,
+  .admin-list-panel,
+  .admin-report-filter,
+  .content-card,
+  .admin-shell .order-card {
+    @apply p-5;
+  }
+
+  .admin-form-card h2,
+  .admin-list-panel h2,
+  .content-card h2 {
+    @apply text-[1.35rem];
+  }
+
+  .admin-form-intro,
+  .admin-list-toolbar {
+    @apply gap-3 pb-4;
+  }
+
+  .admin-search-box {
+    @apply min-w-0 w-full;
+  }
+
+  .admin-search-box input,
+  .admin-search-box select {
+    @apply w-full;
+  }
+
+  .admin-product-form-card {
+    @apply static;
+  }
+
+  .admin-simple-upload {
+    @apply grid gap-3 p-3;
+  }
+
+  .admin-simple-upload-preview {
+    @apply h-24 w-24;
+  }
+
+  .admin-simple-upload .tw-input {
+    @apply w-full text-[0.82rem];
+  }
+
+  .admin-form-row {
+    @apply grid grid-cols-1 gap-0;
+  }
+
+  .admin-form-mini-summary {
+    @apply grid-cols-1 text-left;
+  }
+
+  .admin-form-mini-summary span {
+    @apply text-left;
+  }
+
+  .admin-product-catalog-panel {
+    @apply mt-6;
+  }
+
+  .admin-product-list {
+    @apply gap-4;
+  }
+
+  .admin-product-card {
+    @apply grid-cols-1 gap-4 p-4;
+  }
+
+  .admin-product-image {
+    @apply min-h-0;
+    aspect-ratio: 4 / 3;
+  }
+
+  .admin-product-top {
+    @apply grid gap-3;
+  }
+
+  .admin-product-top h3 {
+    @apply text-[1.35rem] leading-tight;
+  }
+
+  .admin-product-badges {
+    @apply justify-start;
+  }
+
+  .admin-product-description {
+    @apply my-3 text-[0.94rem] leading-6;
+  }
+
+  .admin-product-metrics {
+    @apply grid-cols-1;
+  }
+
+  .admin-product-actions {
+    @apply grid grid-cols-2 gap-2;
+  }
+
+  .admin-product-actions > :is(.tw-btn-primary, .tw-btn-secondary, .tw-btn-danger) {
+    @apply w-full;
+  }
+
+  .dashboard-list-item {
+    @apply grid gap-2 p-4;
+  }
+
+  .dashboard-list-item > span {
+    @apply justify-self-start;
+  }
+
+  .admin-shell .order-header {
+    @apply grid-cols-1 gap-3;
+  }
+
+  .admin-shell .order-header > div:last-child {
+    @apply justify-start;
+  }
+
+  .admin-tracking-box {
+    @apply min-w-0 w-full;
+  }
+
+  .admin-shell .order-card > div:last-child {
+    @apply grid grid-cols-1 gap-2;
+  }
+
+  .admin-shell .order-card > div:last-child > :is(.tw-btn-primary, .tw-btn-secondary, .tw-btn-danger) {
+    @apply w-full;
+  }
+
+  .admin-shell .order-item {
+    @apply gap-3;
+  }
+
+  .admin-shell .order-total {
+    @apply items-start text-sm;
+  }
+
+  .admin-report-layout {
+    @apply gap-6;
+  }
+
+  .report-detail-list > div {
+    @apply grid grid-cols-1 gap-1 text-left;
+  }
+
+  .report-detail-list > div strong {
+    @apply text-left;
+  }
+}
+
+@media (max-width: 380px) {
+  .admin-sidebar-link {
+    @apply text-[0.72rem];
+  }
+
+  .admin-summary-grid {
+    @apply grid-cols-1;
+  }
+
+  .admin-page-actions,
+  .admin-form-actions,
+  .admin-product-actions {
+    @apply grid-cols-1;
+  }
+
+  .admin-page-actions > :first-child:nth-last-child(3) ~ :last-child,
+  .admin-form-actions > :first-child:nth-last-child(3) ~ :last-child {
+    @apply col-span-1;
+  }
+}
