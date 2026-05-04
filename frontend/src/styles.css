@@ -1377,3 +1377,152 @@ img {
     @apply hidden;
   }
 }
+
+@media (max-width: 640px) {
+  html {
+    font-size: 15px;
+  }
+
+  body {
+    @apply leading-[1.6];
+  }
+
+  .container {
+    @apply px-4;
+  }
+
+  .page-section {
+    @apply py-9;
+  }
+
+  .section-title,
+  .page-title {
+    @apply mb-3 text-[2.05rem] leading-tight;
+  }
+
+  .page-subtitle {
+    @apply mb-7 text-base leading-7;
+  }
+
+  [data-animate] {
+    @apply translate-y-0 opacity-100;
+  }
+
+  .sticky.top-0.z-50 > div:first-child {
+    @apply gap-2 px-4 py-2.5;
+  }
+
+  .sticky.top-0.z-50 form[role="search"] {
+    @apply mt-1 min-h-10 rounded-2xl px-2.5;
+  }
+
+  .sticky.top-0.z-50 form[role="search"] input {
+    @apply py-1.5 text-[0.9rem];
+  }
+
+  .sticky.top-0.z-50 form[role="search"] button[type="submit"] {
+    @apply px-3 py-1.5 text-[0.7rem];
+  }
+
+  .sticky.top-0.z-50 img[alt="Larisdy Logo"] {
+    @apply h-10 w-10;
+  }
+
+  .sticky.top-0.z-50 button[aria-label*="keranjang"],
+  .sticky.top-0.z-50 button[aria-label*="menu"] {
+    @apply h-10 w-10;
+  }
+
+  section.min-h-\[calc\(100vh-84px\)\] {
+    @apply min-h-[620px] py-14;
+  }
+
+  section.min-h-\[calc\(100vh-84px\)\] .max-w-\[720px\] {
+    @apply max-w-none;
+  }
+
+  section.min-h-\[calc\(100vh-84px\)\] h1 {
+    @apply mb-4 text-[2.85rem] leading-[1.06];
+  }
+
+  section.min-h-\[calc\(100vh-84px\)\] p {
+    @apply mb-6 text-base leading-7;
+  }
+
+  section.min-h-\[calc\(100vh-84px\)\] button {
+    @apply min-h-12 flex-1 px-4 py-3 text-sm;
+  }
+
+  section.min-h-\[calc\(100vh-84px\)\] .flex.flex-wrap {
+    @apply grid grid-cols-1 gap-3 min-[420px]:grid-cols-2;
+  }
+
+  .product-card {
+    @apply rounded-2xl shadow-larisdy-sm;
+  }
+
+  .product-card img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .product-card > div:last-child {
+    @apply p-4;
+  }
+
+  .product-card h3 {
+    @apply mb-1 text-[1.28rem] leading-tight;
+  }
+
+  .product-card p {
+    @apply text-[0.95rem] leading-6;
+  }
+
+  .product-card .border-t {
+    @apply gap-3 pt-3;
+  }
+
+  .product-card .text-xl {
+    @apply text-[1.15rem];
+  }
+
+  .admin-page-header,
+  .content-card,
+  .tw-card,
+  .rounded-2xl.border.border-brand-border.bg-white,
+  .rounded-\[18px\].border.border-brand-border.bg-white,
+  .rounded-xl.border.border-brand-border.bg-white {
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+  }
+
+  .form-group {
+    @apply mb-5;
+  }
+
+  .form-group label {
+    @apply mb-2 text-sm;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select,
+  .tw-input {
+    @apply rounded-xl px-3.5 py-3 text-[0.95rem];
+  }
+
+  .footer {
+    @apply mt-14 px-0 pb-7 pt-11;
+  }
+
+  .footer-grid {
+    @apply mb-8 gap-8;
+  }
+
+  .footer-logo {
+    @apply mb-4 text-xl;
+  }
+
+  .footer-bottom {
+    @apply pt-6 text-sm leading-6;
+  }
+}
