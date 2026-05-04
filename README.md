@@ -87,3 +87,19 @@ Kalau perlu, Anda juga bisa skip sebagian langkah:
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\test-all.ps1 -SkipE2E
 ```
+
+## Deploy Demo Gratis
+
+Backend Laravel bisa dideploy ke Render memakai Blueprint `render.yaml`:
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/anjat6262/larisdy-demo)
+
+Frontend React bisa dideploy ke Vercel dari folder `frontend/`.
+
+Pengaturan Vercel:
+
+- Framework preset: `Vite`
+- Root directory: `frontend`
+- Build command: `npm run build`
+- Output directory: `dist`
+- Environment variable: `VITE_API_BASE_URL=https://larisdy-api.onrender.com/api`

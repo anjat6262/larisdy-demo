@@ -1,0 +1,47 @@
+services:
+  - type: web
+    runtime: docker
+    name: larisdy-api
+    plan: free
+    region: singapore
+    dockerfilePath: backend_runtime/Dockerfile
+    dockerContext: backend_runtime
+    healthCheckPath: /api/products
+    envVars:
+      - key: APP_NAME
+        value: Larisdy
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: FRONTEND_URL
+        value: https://larisdy-demo.vercel.app
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DATABASE_URL
+        fromDatabase:
+          name: larisdy-db
+          property: connectionString
+      - key: CACHE_DRIVER
+        value: file
+      - key: FILESYSTEM_DISK
+        value: local
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: MAIL_MAILER
+        value: log
+      - key: PAYMENT_PROVIDER
+        value: fake
+      - key: BCA_BANK_NAME
+        value: BCA
+      - key: BCA_ACCOUNT_NUMBER
+        value: "1234567890"
+      - key: BCA_ACCOUNT_NAME
+        value: Larisdy
+
+databases:
+  - name: larisdy-db
+    plan: free
+    region: singapore
+    databaseName: larisdy
+    user: larisdy
