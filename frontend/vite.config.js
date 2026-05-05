@@ -5,6 +5,10 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173,
-    allowedHosts: [".trycloudflare.com"],
+    allowedHosts: [".trycloudflare.com", ".tunnelmole.net", ".loca.lt"],
+    hmr: false,
+  },
+  preview: {
+    allowedHosts: [".trycloudflare.com", ".tunnelmole.net", ".loca.lt"],
   },
 });
